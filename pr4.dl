@@ -107,3 +107,8 @@ reenvio_doble(Origen,Mensaje,Destino):- envia(Origen,Mensaje,Destino) ,group_by(
 triple_arco_iris(Usuario):-group_by(reenvio_doble(Usuario,14,_),[Usuario],Reenvios = count),Reenvios >= 10.
 
 %--------consulta 4---------%
+envia_trans(X,Y):- envia(X,19,Y).
+envia_trans(X,Y):- envia(X,19,Z), envia_trans(Z,Y), X \= Y.
+
+fortuna_usuario(Usuario, CantidadDinero):- group_by(envia_trans(Usuario,_Y),[Usuario],Reenvios = count),CantidadDinero is Reenvios * 245.
+
