@@ -110,5 +110,5 @@ triple_arco_iris(Usuario):-group_by(reenvio_doble(Usuario,14,_),[Usuario],Reenvi
 envia_trans(X,Y):- envia(X,19,Y).
 envia_trans(X,Y):- envia(X,19,Z), envia_trans(Z,Y), X \= Y.
 
-fortuna_usuario(Usuario, CantidadDinero):- group_by(envia_trans(Usuario,_Y),[Usuario],Reenvios = count),CantidadDinero is Reenvios * 245.
+fortuna_usuario(Usuario, CantidadDinero):- group_by(envia_trans(Usuario,_),[Usuario],Reenvios = count),CantidadDinero is Reenvios * 245.
 
